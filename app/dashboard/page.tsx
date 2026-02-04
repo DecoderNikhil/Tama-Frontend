@@ -50,7 +50,7 @@ export default function DashboardPage() {
 
   const logout = async () => {
     try {
-      await api.post("/auth/logout");
+      await api.get("/auth/logout");
     } finally {
       useAuthStore.getState().logout();
       window.location.href = "/login";
