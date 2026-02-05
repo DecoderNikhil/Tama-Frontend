@@ -1,36 +1,184 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TaMa Frontend (Task Manager UI)
 
-## Getting Started
+TaMa Frontend is a modern task management user interface built using **Next.js**, designed to work with the TaMa Backend API. It provides authentication, task management, filtering, searching, and pagination features.
 
-First, run the development server:
+---
+
+## 🚀 Features
+
+- User Authentication (Register / Login / Logout)
+- Task Creation, Update, Delete
+- Toggle Task Status (Pending / Completed)
+- Pagination Support
+- Task Filtering by Status
+- Task Search by Title
+- Secure Cookie-Based Authentication
+- Responsive UI
+
+---
+
+## 🛠 Tech Stack
+
+- Next.js (App Router)
+- TypeScript
+- Tailwind CSS
+- Axios / Fetch API
+- JWT Authentication via Cookies
+
+---
+
+## 📦 Prerequisites
+
+Make sure you have installed:
+
+- Node.js (v18 or higher)
+- npm / yarn / pnpm / bun
+- TaMa Backend running locally or deployed
+
+---
+
+## 📥 Clone Repository
+
+```bash
+git clone <YOUR_FRONTEND_REPO_URL>
+cd <YOUR_FRONTEND_FOLDER_NAME>
+```
+
+---
+
+## 📦 Install Dependencies
+
+```bash
+npm install
+```
+
+---
+
+## ⚙️ Environment Variables Setup
+
+Create a `.env.local` file in the root directory and add:
+
+```env
+NEXT_PUBLIC_API_URL=http://localhost:5000
+```
+
+---
+
+### 🔑 Variable Explanation
+
+| Variable            | Description                  |
+| ------------------- | ---------------------------- |
+| NEXT_PUBLIC_API_URL | Base URL of TaMa Backend API |
+
+⚠️ Make sure this URL matches the backend server URL.
+
+---
+
+## ▶️ Running Project Locally
+
+Start the development server:
 
 ```bash
 npm run dev
-# or
+```
+
+Or using other package managers:
+
+```bash
 yarn dev
-# or
 pnpm dev
-# or
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🌐 Access Application
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open your browser and visit:
 
-## Learn More
+```
+http://localhost:3000
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🔐 Authentication Flow
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. User registers or logs in
+2. Backend sends authentication cookies
+3. Cookies are automatically sent with API requests
+4. Protected routes require authentication
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## ✅ Connected Backend Endpoints
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Authentication
+
+- POST `/auth/register`
+- POST `/auth/login`
+- POST `/auth/refresh`
+- POST `/auth/logout`
+
+---
+
+### Task Management
+
+- GET `/tasks`
+- POST `/tasks`
+- GET `/tasks/:id`
+- PATCH `/tasks/:id`
+- DELETE `/tasks/:id`
+- PATCH `/tasks/:id/toggle`
+
+---
+
+## 🔎 Task List Capabilities
+
+The task listing supports:
+
+- Pagination (loading tasks in batches)
+- Filtering by status (pending/completed)
+- Searching by task title
+
+---
+
+## 🧪 Testing The Application
+
+1. Start Backend Server
+2. Start Frontend Server
+3. Register a user
+4. Login and manage tasks
+
+---
+
+## ❗ Troubleshooting
+
+### Backend Not Connecting
+
+- Verify backend is running
+- Check `NEXT_PUBLIC_API_URL` value
+- Ensure CORS is configured in backend
+
+---
+
+### Authentication Not Working
+
+- Enable cookies in browser
+- Check backend token configuration
+
+---
+
+### Port Conflict
+
+- Change frontend port:
+
+```bash
+npm run dev -- -p 3001
+```
+
+---
+
+## 👨‍💻 Author
+
+Nikhil
